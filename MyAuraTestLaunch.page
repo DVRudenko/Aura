@@ -1,0 +1,14 @@
+<apex:page id="MyAuraTestLaunch" standardController="Account">
+    <apex:includeLightning />
+    <body>
+    <div id="lightning"></div>
+    <script>
+      $Lightning.use("c:AppForTest", function () {
+        $Lightning.createComponent("c:TestListForm", {}, "lightning", function (cmp) {
+          console.log('Component is created!');
+          console.log(cmp);
+        });
+      });
+    </script>
+    </body>
+</apex:page>

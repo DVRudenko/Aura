@@ -1,0 +1,38 @@
+<aura:component description="TestListForm" controller="FormTestController" implements="force:appHostable,flexipage:availableForAllPageTypes,force:hasRecordId, force:lightningQuickAction" access="global" >
+    <aura:attribute name="accounts" type="List"/>
+    <div class="slds-card slds-p-top--medium">
+        <header class="slds-card__header">
+            <h3 class="slds-text-heading--small">Accounts</h3>
+        </header>
+        <section class="slds-card__body">
+            <div id="list" class="row">
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                    <tr class="slds-line-height_reset">
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Accoint Id">Accoint Id</div>
+                        </th>
+                        <th class="slds-text-title_caps" scope="col">
+                            <div class="slds-truncate" title="Account Name">Account Name</div>
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <aura:iteration items="{!v.accounts}" var="acc">
+                        <tr class="slds-hint-parent">
+                            <td data-label="Accoint Id">
+                                <div class="slds-truncate" title="Accoint Id">{!acc.Id}</div>
+                            </td>
+                            <td data-label="Accoint Name">
+                                <div class="slds-truncate" title="Accoint Name">{!acc.Name}</div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    <lightning:button onclick="{!c.getAccounts}" label="Update"/>
+</aura:component>
